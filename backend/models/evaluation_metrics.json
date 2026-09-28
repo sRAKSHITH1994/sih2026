@@ -1,0 +1,176 @@
+{
+  "dataset": "controlled multi-station injected benchmark",
+  "synthetic": true,
+  "samples": 720,
+  "stations": 5,
+  "seed": 42,
+  "binary_metrics": {
+    "accuracy": 0.9763888888888889,
+    "balanced_accuracy": 0.9743975903614458,
+    "precision": 1.0,
+    "recall": 0.9487951807228916,
+    "f1": 0.973724884080371,
+    "specificity": 1.0,
+    "false_alarm_rate": 0.0
+  },
+  "category_accuracy": 0.9487951807228916,
+  "confusion": {
+    "tp": 315,
+    "tn": 388,
+    "fp": 0,
+    "fn": 17
+  },
+  "latency": {
+    "mean_detection_samples": 2.125,
+    "p95_inference_ms": 10.116413599575933,
+    "mean_inference_ms": 6.732388103356344,
+    "throughput_per_second": 148.53570302957772
+  },
+  "scenarios": [
+    {
+      "scenario": "normal",
+      "onset_sample": 50,
+      "detection_latency_samples": null,
+      "detected": true,
+      "true_positive": 0,
+      "true_negative": 80,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "spike",
+      "onset_sample": 50,
+      "detection_latency_samples": 0,
+      "detected": true,
+      "true_positive": 20,
+      "true_negative": 60,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "drift",
+      "onset_sample": 50,
+      "detection_latency_samples": 6,
+      "detected": true,
+      "true_positive": 44,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 6
+    },
+    {
+      "scenario": "frozen",
+      "onset_sample": 50,
+      "detection_latency_samples": 7,
+      "detected": true,
+      "true_positive": 43,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 7
+    },
+    {
+      "scenario": "data_loss",
+      "onset_sample": 50,
+      "detection_latency_samples": 0,
+      "detected": true,
+      "true_positive": 12,
+      "true_negative": 68,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "electrical",
+      "onset_sample": 50,
+      "detection_latency_samples": 0,
+      "detected": true,
+      "true_positive": 50,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "mechanical",
+      "onset_sample": 50,
+      "detection_latency_samples": 0,
+      "detected": true,
+      "true_positive": 50,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "station_power_failure",
+      "onset_sample": 50,
+      "detection_latency_samples": 0,
+      "detected": true,
+      "true_positive": 50,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 0
+    },
+    {
+      "scenario": "genuine_weather",
+      "onset_sample": 50,
+      "detection_latency_samples": 4,
+      "detected": true,
+      "true_positive": 46,
+      "true_negative": 30,
+      "false_positive": 0,
+      "false_negative": 4
+    }
+  ],
+  "criteria": [
+    {
+      "name": "Innovation & Novelty",
+      "weight": 25,
+      "status": "evidence",
+      "value": "Trained edge MLP + rules, pre-failure warning, dual TP/TPH LSTM, dynamic sensors"
+    },
+    {
+      "name": "Detection Accuracy",
+      "weight": 20,
+      "status": "measured",
+      "value": 0.9743975903614458,
+      "unit": "balanced accuracy"
+    },
+    {
+      "name": "Real-Time Capability",
+      "weight": 15,
+      "status": "measured",
+      "value": 10.116413599575933,
+      "unit": "p95 ms/report"
+    },
+    {
+      "name": "Explainability",
+      "weight": 10,
+      "status": "measured",
+      "value": 1.0,
+      "unit": "edge top-features + exact Shapley + decision explanation"
+    },
+    {
+      "name": "Scalability",
+      "weight": 10,
+      "status": "measured",
+      "value": 148.53570302957772,
+      "unit": "reports/s on this machine"
+    },
+    {
+      "name": "Practical Deployability",
+      "weight": 10,
+      "status": "evidence",
+      "value": "ESP32-S3 Wi-Fi, optional LoRa alert, offline queue, recovery and presence states"
+    },
+    {
+      "name": "Visualization/UI",
+      "weight": 5,
+      "status": "evidence",
+      "value": "Live, Evaluation, Hardware Integration and labelled Simulator pages"
+    },
+    {
+      "name": "Energy Efficiency",
+      "weight": 5,
+      "status": "hardware-measured",
+      "value": "INA219 voltage/current/power shown live; benchmark value is simulated"
+    }
+  ],
+  "warning": "Synthetic injected-data metrics are for pipeline verification. Do not present them as field accuracy."
+}

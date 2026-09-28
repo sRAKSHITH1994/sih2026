@@ -1,0 +1,11 @@
+SIH26073 Final Local + Global Brain
+Version: 3.0.0
+Build date: 2026-09-18
+Revision: trained edge MLP + dual global LSTM + simulator + failure warning
+
+Transport: Wi-Fi HTTP primary; optional LoRa critical-alert fallback
+Core Local ML: trained 56-feature MLP with explicit sensor-validity masks
+Core Global ML: trained dual TP / TPH LSTM autoencoders
+Spatial evidence: fresh received stations only; hardware and simulation isolated
+Current instruments: BMP280, MPU6050, INA219
+Optional instruments: SHT31/DHT22 humidity, rain, anemometer, vane, pyranometer (disabled / Not attached)
