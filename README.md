@@ -87,4 +87,4 @@ cd ../firmware && pio run
 
 PlatformIO downloads the pinned ESP32 platform and libraries on its first build.
 
-further changes will be made.
+further changes will be made in the future.
