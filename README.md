@@ -20,7 +20,7 @@ Version 3 is the complete Wi-Fi-first SIH prototype for anomaly-aware automatic 
 | BMP280-compatible module | Temperature and pressure only | Enabled |
 | MPU6050 | Movement, impact, tilt | Enabled |
 | INA219 | Supply voltage, current, power | Enabled |
-| SHT31 or DHT22 | External humidity | Not attached |
+| SHT31 or DHT22 | External humidity | DHT11 attached |
 | Rain, anemometer, wind vane, pyranometer | Expansion instruments | Not attached |
 | SX127x LoRa | Critical-alert fallback | Disabled |
 
