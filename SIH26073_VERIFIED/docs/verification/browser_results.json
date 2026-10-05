@@ -1,0 +1,14 @@
+{
+  "served_original_html": true,
+  "simulator_class": "ELECTRICAL",
+  "evaluation_compatible": true,
+  "evaluation_samples": 2080,
+  "native_rules_used": true,
+  "console_page_errors": [],
+  "pages_tested": [
+    "Live Intelligence",
+    "Evaluation Criteria",
+    "Hardware Integration",
+    "Station Simulator"
+  ]
+}

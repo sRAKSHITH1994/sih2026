@@ -1,0 +1,97 @@
+# Original versus reference
+
+All archive files, including environment/cache files: `ARCHIVE_DIFF_ALL.tsv`.
+
+- `README.md` — different
+- `RELEASE_NOTES.md` — different
+- `REPAIR_STATUS.md` — only reference
+- `SIH26073_MPU_POSITION_ADDITION/START_HERE.md` — only original
+- `SIH26073_MPU_POSITION_ADDITION/apply_addition.py` — only original
+- `SIH26073_MPU_POSITION_ADDITION/files/firmware/include/station_position.h` — only original
+- `SIH26073_MPU_POSITION_ADDITION/files/firmware/include/station_position_core.h` — only original
+- `SIH26073_MPU_POSITION_ADDITION/files/firmware/src/station_position.cpp` — only original
+- `SIH26073_MPU_POSITION_ADDITION/tests/test_backend.py` — only original
+- `SIH26073_MPU_POSITION_ADDITION/tests/test_position.cpp` — only original
+- `START_HERE_WINDOWS.md` — different
+- `VERSION.txt` — different
+- `backend/app/evaluation.py` — different
+- `backend/app/global_brain.py` — different
+- `backend/app/local_reference.py` — only reference
+- `backend/app/lstm_autoencoder.py` — different
+- `backend/app/main.py` — different
+- `backend/app/schemas.py` — different
+- `backend/app/sensor_registry.py` — different
+- `backend/app/simulator.py` — different
+- `backend/app/spatial.py` — different
+- `backend/app/storage.py` — different
+- `backend/data/global_brain.db` — different
+- `backend/data/global_brain.db-shm` — only original
+- `backend/data/global_brain.db-wal` — only original
+- `backend/models/evaluation_metrics.json` — different
+- `backend/models/lstm_metrics.json` — only reference
+- `backend/models/lstm_tp_autoencoder.npz` — different
+- `backend/models/lstm_tph_autoencoder.npz` — different
+- `backend/tests/conftest.py` — only reference
+- `backend/tests/test_api.py` — different
+- `backend/tests/test_migration.py` — only reference
+- `backend/tests/test_native_parity.py` — only reference
+- `backend/tests/test_real_training.py` — only reference
+- `backend/tests/test_sensor_registry.py` — different
+- `backend/tests/test_spatial.py` — different
+- `backend/tests/test_temporal.py` — only reference
+- `docs/ARCHITECTURE.md` — different
+- `docs/EVALUATION.md` — different
+- `docs/HARDWARE_CONNECTIONS.md` — different
+- `docs/VALIDATION.md` — only reference
+- `docs/screenshots/anomaly_history.png` — only reference
+- `docs/screenshots/overview.png` — only reference
+- `docs/validation_results.json` — only reference
+- `edge_training/README.md` — different
+- `edge_training/artifacts/edge_mlp.joblib` — only original
+- `edge_training/artifacts/edge_mlp.npz` — only reference
+- `edge_training/artifacts/edge_mlp_metrics.json` — different
+- `edge_training/artifacts/edge_scaler.joblib` — only original
+- `edge_training/artifacts/edge_training_sample.csv` — only original
+- `edge_training/collect_serial.py` — different
+- `edge_training/corpus.py` — only reference
+- `edge_training/feature_pipeline.py` — different
+- `edge_training/train_edge_mlp.py` — different
+- `firmware/.vscode/c_cpp_properties.json` — only original
+- `firmware/.vscode/extensions.json` — only original
+- `firmware/.vscode/launch.json` — only original
+- `firmware/include/config.h` — different
+- `firmware/include/detection_rules.h` — only reference
+- `firmware/include/model_weights.h` — different
+- `firmware/include/sensor_manager.h` — different
+- `firmware/include/trusted_data.h` — different
+- `firmware/include/user_config.h` — different
+- `firmware/src/edge_mlp.cpp` — different
+- `firmware/src/feature_engine.cpp` — different
+- `firmware/src/health_engine.cpp` — different
+- `firmware/src/local_brain.cpp` — different
+- `firmware/src/main.cpp` — different
+- `firmware/src/recovery_manager.cpp` — different
+- `firmware/src/sensor_manager.cpp` — different
+- `firmware/src/station_position.cpp` — different
+- `firmware/src/telemetry.cpp` — different
+- `firmware/src/trusted_data.cpp` — different
+- `firmware/tests/native_replay.cpp` — only reference
+- `firmware/tests/native_stub/Arduino.h` — only reference
+- `firmware/tests/test_position.cpp` — only reference
+- `firmware/tests/test_recovery_trusted.cpp` — only reference
+- `frontend/dist/assets/index-BUwwYF9p.js` — only reference
+- `frontend/dist/assets/index-CJfyV_W6.js` — only original
+- `frontend/dist/assets/index-COiNgVAk.css` — only reference
+- `frontend/dist/assets/index-CVruJ8gU.css` — only original
+- `frontend/dist/index.html` — different
+- `frontend/package-lock.json` — different
+- `frontend/package.json` — different
+- `frontend/src/App.jsx` — different
+- `frontend/src/styles.css` — different
+- `scripts/migrate_database.py` — only reference
+- `scripts/run_evaluation.py` — different
+- `scripts/send_demo_telemetry.py` — different
+- `scripts/train_lstm.py` — different
+- `sih26073_code_audit.md` — only reference
+- `start_dashboard.bat` — different
+- `start_dashboard.sh` — different

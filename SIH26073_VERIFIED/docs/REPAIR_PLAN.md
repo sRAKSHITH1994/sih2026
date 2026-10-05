@@ -1,0 +1,7 @@
+# Repair plan
+
+1. A1/A2/A3/A4/A5/A6: edge_training/{corpus.py,feature_pipeline.py,train_edge_mlp.py,requirements.txt,artifacts/*}; firmware/include/model_weights.h. Current-observation labels, independent whole-session splits, realistic profiles, five seeds, validation-selected MLP size/loss/patience, server gradient boosting comparison; no debounce or extra feature.
+2. B10/B11/B12/B13/B15 and feature parity: firmware/src/{feature_engine,edge_mlp,local_brain,recovery_manager,trusted_data,telemetry,sensor_manager,health_engine,main,station_position}.cpp; corresponding include headers, detection_rules.h, tests; scripts/run_native_tests.py. Bounded persistent queue, sustained recovery, checked MPU, identity and calibrated-claim removal.
+3. A7/B4/B5/B7: scripts/train_lstm.py; backend/app/{lstm_autoencoder,global_brain}.py; backend/models/*; cadence/reset/TP fallback/validation threshold sweep and continuous fusion.
+4. B1/B2/B3/B6/B8/B9/B10: backend/app/{main,schemas,storage,sensor_registry,spatial,simulator,local_reference,evaluation}.py; scripts/{run_evaluation,migrate_database,send_demo_telemetry}.py; backend/tests/*.py. Additive compatibility layer, safe static serving/auth, raw-only inference, replay guards, measured reports.
+5. B14/B16/C: docs/{EVALUATION,ARCHITECTURE,HARDWARE_CONNECTIONS,VALIDATION}.md, README.md, START_HERE_WINDOWS.md, REPAIR_STATUS.md, CHANGES.md, complete CHANGESET.diff; tests and frontend checksum verification. Preserve original frontend and run script names. Document impossibilities from frozen chart/labels.

@@ -1,0 +1,15 @@
+{
+  "main_tests": "python -m pytest backend/tests -q",
+  "native_tests": "python scripts/run_native_tests.py",
+  "pandas_3_tests": "python -m pytest backend/tests/test_temporal.py backend/tests/test_real_training.py -q (with pandas 3.0.6 first on PYTHONPATH)",
+  "training": "python edge_training/train_edge_mlp.py --jobs 5",
+  "final_edge_audit": "python edge_training/train_edge_mlp.py --finalize-only",
+  "label_ablation": "python scripts/ablate_spike_labels.py --jobs 5",
+  "lstm": "python scripts/train_lstm.py --threshold-percentile 97",
+  "integrated_evaluation": "python scripts/run_evaluation.py --samples-per-scenario 220 --stations 3 --seed 42 --sessions-per-class 16",
+  "native_timing": "python scripts/measure_native.py",
+  "browser": "python scripts/browser_smoke.py --start-server",
+  "esp32_attempt": "python -m platformio run -d firmware (toolchain download did not complete)",
+  "addition_guard": "python SIH26073_MPU_POSITION_ADDITION/apply_addition.py --project . --check",
+  "report": "python scripts/make_repair_report.py"
+}

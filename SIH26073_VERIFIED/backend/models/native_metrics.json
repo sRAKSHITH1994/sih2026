@@ -1,0 +1,27 @@
+{
+  "weight_bias_bytes": 24232,
+  "normalization_bytes": 448,
+  "all_float_array_bytes": 24680,
+  "samples": 6030,
+  "mean_inference_ms": 0.05728253449,
+  "p95_inference_ms": 0.089262,
+  "checksum": 5760.299805,
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "compiler": "g++ (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+  "build_command": [
+    "g++",
+    "-std=c++17",
+    "-O2",
+    "-I/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/tests/native_stub",
+    "-I/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/include",
+    "/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/tests/native_benchmark.cpp",
+    "/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/src/edge_mlp.cpp",
+    "/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/src/feature_engine.cpp",
+    "-o",
+    "/workspace/scratch/cda57cbb2b9f/SIH26073_VERIFIED/firmware/tests/build/benchmark"
+  ],
+  "model_header_text_bytes": 108688,
+  "model_sha256": "c5f415b96e57a51215f7f63ba425dc8245c7d6005778cb4273353fd435471e15",
+  "scope": "Host CPU g++ -O2 runEdgeML including normalization, class masking, softmax and gradient attribution. Excludes feature extraction, ESP32 timing and linker/firmware image overhead.",
+  "esp32_timing_measured": false
+}

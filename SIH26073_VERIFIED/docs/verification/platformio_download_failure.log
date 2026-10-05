@@ -1,0 +1,28 @@
+********************************************************************************
+If you like PlatformIO, please:
+- star it on GitHub > https://github.com/platformio/platformio-core
+- follow us on LinkedIn to stay up-to-date on the latest project news > https://www.linkedin.com/company/platformio/
+- try PlatformIO IDE for embedded development > https://platformio.org/platformio-ide
+********************************************************************************
+
+Processing esp32-s3-devkitc-1-n8 (platform: espressif32@7.1.3; board: esp32-s3-devkitc-1; framework: arduino)
+--------------------------------------------------------------------------------
+Platform Manager: Installing espressif32 @ 7.1.3
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Platform Manager: espressif32@7.1.3 has been installed!
+Tool Manager: Installing espressif/toolchain-xtensa-esp32s3 @ 8.4.0+2021r2-patch5
+Downloading 0% 10%
+Tool Manager: Warning! Package Mirror: The checksum '5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7' of the downloaded file 'toolchain-xtensa-esp32s3-linux_x86_64-8.4.0+2021r2-patch5.tar.gz' does not match to the remote '6618e8a91fca47da09c840a61bf008b1f06698553389c01c8788e595d8e84da9'
+Tool Manager: Looking for another mirror...
+Downloading 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Unpacking 0% 10% 20% 30% 40% 50% 60% 70% 80% 90% 100%
+Tool Manager: toolchain-xtensa-esp32s3@8.4.0+2021r2-patch5 has been installed!
+Tool Manager: Installing espressif/toolchain-riscv32-esp @ 8.4.0+2021r2-patch5
+Downloading 0% 10%
+Tool Manager: Warning! Package Mirror: The checksum '5b131ca14aa96311d3432b0062c7443d3b0e6346ec279bd376a75f0a76bcd5d7' of the downloaded file 'toolchain-riscv32-esp-linux_x86_64-8.4.0+2021r2-patch5.tar.gz' does not match to the remote '525205ae3bb69937863d4d787818dd4f3c373c8d242da4aa22b220b12c7ed4c9'
+Tool Manager: Looking for another mirror...
+Downloading...
+Tool Manager: Error: Please read https://bit.ly/package-manager-ioerror
+Tool Manager: Warning! Package Mirror: HTTPSConnectionPool(host='release-assets.githubusercontent.com', port=443): Read timed out. (read timeout=10)
+Tool Manager: Looking for another mirror...

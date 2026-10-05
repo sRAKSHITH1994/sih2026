@@ -1,0 +1,18 @@
+{
+  "command": "diff -r ORIGINAL/frontend SIH26073_VERIFIED/frontend",
+  "exit_code": 0,
+  "file_count": 10,
+  "original_and_delivered_equal": true,
+  "hashes": {
+    "package.json": "94bc122f7533a2063da558d2e047829560b1a31c13d714ce3782d24d18ed0094",
+    "index.html": "8c57bf6a23235e0d9ff79cffea1701fa23506b118ad126b4658a70f8d2ac0c90",
+    "package-lock.json": "1b3359a9bee5a23cf1c15d820d9802751d25de2c8a5cd97254a0d7054079a79b",
+    "vite.config.js": "b7e7ed781d08d8e9d8bedd190c916644dd1217509e219474f2915c30137b2101",
+    "src/App.jsx": "e10c4e188f29c2aee7f977a63b389ed701af176b4880f59dcfaef235a0a19697",
+    "src/main.jsx": "c8d1b38b10eda8adba87b0b9b4a4a1739477df84640b3444807fc473f8403bf7",
+    "src/styles.css": "b74e4a50a5d55b05c91ed4f03a5b8d6aa86a382403fd7a31ee36881514f0b3ad",
+    "dist/index.html": "7fb5d2d9449d816917220607312deff21b7317d4df85df342e1c7c49c7c546f1",
+    "dist/assets/index-CVruJ8gU.css": "b4be7a376510162d9f0f8a2d85d229e5ba6a778fc8aebae391951fe0555499a8",
+    "dist/assets/index-CJfyV_W6.js": "a29c6d2c35044494ec5dcc7b5df2efff483c2053cad277c510775267e356681b"
+  }
+}
