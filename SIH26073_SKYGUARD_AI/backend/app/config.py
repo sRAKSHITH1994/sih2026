@@ -14,6 +14,17 @@ MODEL_TP_PATH = Path(os.getenv("SIH_LSTM_TP_MODEL", MODEL_DIR / "lstm_tp_autoenc
 MODEL_PATH = MODEL_TPH_PATH
 
 STATION_TOKEN = os.getenv("SIH_STATION_TOKEN", "sih26073-demo-token")
+
+# Hosted-dashboard settings. Keep these explicit instead of exposing the station
+# token in browser JavaScript. Multiple origins can be comma-separated.
+DASHBOARD_ORIGINS = tuple(
+    origin.strip().rstrip("/")
+    for origin in os.getenv("SIH_DASHBOARD_ORIGINS", "").split(",")
+    if origin.strip()
+)
+ALLOW_PUBLIC_DASHBOARD_WRITES = os.getenv("SIH_PUBLIC_DASHBOARD_WRITES", "0").strip().lower() in {
+    "1", "true", "yes", "on"
+}
 STALE_SECONDS = int(os.getenv("SIH_STALE_SECONDS", "20"))
 NEIGHBOR_MAX_AGE_SECONDS = int(os.getenv("SIH_NEIGHBOR_MAX_AGE_SECONDS", "120"))
 MIN_SPATIAL_NEIGHBORS = int(os.getenv("SIH_MIN_SPATIAL_NEIGHBORS", "2"))

@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: sih26073-backend
+    runtime: python
+    rootDir: .
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: SIH_STATION_TOKEN
+        generateValue: true
+      - key: SIH_DASHBOARD_ORIGINS
+        value: https://sih2026-i4g2p0nzl-super-tech-titans1.vercel.app
+      - key: SIH_PUBLIC_DASHBOARD_WRITES
+        value: "1"

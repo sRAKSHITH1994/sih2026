@@ -5,9 +5,13 @@ from contextlib import asynccontextmanager,suppress
 from datetime import datetime,timezone,timedelta
 from pathlib import Path
 from fastapi import FastAPI,Header,HTTPException,Query,WebSocket,WebSocketDisconnect,Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse,Response
 from fastapi.staticfiles import StaticFiles
-from .config import PROJECT_ROOT,STALE_SECONDS,STATION_TOKEN,MODEL_TP_PATH,MODEL_TPH_PATH
+from .config import (
+    PROJECT_ROOT, STALE_SECONDS, STATION_TOKEN, MODEL_TP_PATH, MODEL_TPH_PATH,
+    DASHBOARD_ORIGINS, ALLOW_PUBLIC_DASHBOARD_WRITES,
+)
 from .global_brain import GlobalBrainEngine
 from .schemas import TelemetryPacket,SimulationStepRequest,EvaluationRequest
 from .sensor_registry import hardware_status
@@ -52,6 +56,18 @@ async def lifespan(app):
  with suppress(asyncio.CancelledError):await task
 app=FastAPI(title='SIH26073 Sky Guard AI',version='5.0.0',lifespan=lifespan)
 
+# CORS is only needed when the Render API is called directly. The recommended
+# Vercel external rewrite keeps requests same-origin, but this exact allow-list
+# is useful for diagnostics and avoids the insecure allow_origins=["*"] pattern.
+if DASHBOARD_ORIGINS:
+ app.add_middleware(
+  CORSMiddleware,
+  allow_origins=list(DASHBOARD_ORIGINS),
+  allow_credentials=True,
+  allow_methods=['GET','POST','OPTIONS'],
+  allow_headers=['Content-Type','X-Station-Token'],
+ )
+
 DASHBOARD_SECRET=secrets.token_bytes(32)
 
 def loopback_request(request):
@@ -64,15 +80,26 @@ def loopback_request(request):
 
 def require_dashboard_token(request,token):
  if token is not None:return require_token(token)
- origin=request.headers.get('origin')
- if origin and origin.rstrip('/')!=str(request.base_url).rstrip('/'):raise HTTPException(403,'Cross-origin write rejected')
- if request.headers.get('sec-fetch-site')=='cross-site':raise HTTPException(403,'Cross-site write rejected')
+ origin=(request.headers.get('origin') or '').rstrip('/')
+
+ # Hosted SIH demo mode: permit only the explicitly configured Vercel origin.
+ # This applies to dashboard-only simulation/evaluation endpoints; telemetry,
+ # reset and anomaly acknowledgement still require X-Station-Token.
+ if ALLOW_PUBLIC_DASHBOARD_WRITES and origin and origin in DASHBOARD_ORIGINS:
+  return
+
+ # Local dashboard behaviour remains unchanged.
+ if origin and origin!=str(request.base_url).rstrip('/'):
+  raise HTTPException(403,'Cross-origin write rejected')
+ if request.headers.get('sec-fetch-site')=='cross-site':
+  raise HTTPException(403,'Cross-site write rejected')
  value=request.cookies.get('sih_dashboard','')
  try:
   expiry,sig=value.split('.',1)
   valid=int(expiry)>=time.time() and hmac.compare_digest(sig,hmac.new(hashlib.sha256(DASHBOARD_SECRET+STATION_TOKEN.encode()).digest(),expiry.encode(),'sha256').hexdigest())
  except (ValueError,TypeError):valid=False
- if not (STATION_TOKEN and loopback_request(request) and valid):raise HTTPException(401,'X-Station-Token or local dashboard session required')
+ if not (STATION_TOKEN and loopback_request(request) and valid):
+  raise HTTPException(401,'X-Station-Token, trusted hosted dashboard, or local dashboard session required')
 
 def legacy_report(report,stale=False):
  result=json.loads(json.dumps(report));p=result.get('packet',{})
